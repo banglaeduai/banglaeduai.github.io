@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" role="img" aria-label="BengaliEduAI">
+  <rect width="32" height="32" rx="7" fill="#0F6E6E"/>
+  <g fill="none" stroke="#FAFAF8" stroke-width="2.4" stroke-linecap="round">
+    <path d="M7 10h18"/>
+    <path d="M7 15.5h14"/>
+    <path d="M7 21h7"/>
+  </g>
+  <path d="M16 21.5l3 3 7-8.5" fill="none" stroke="#FAFAF8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

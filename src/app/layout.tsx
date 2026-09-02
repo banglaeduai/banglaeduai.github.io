@@ -25,12 +25,19 @@ export const metadata: Metadata = {
   },
   description: site.description,
   openGraph: {
-    title: site.name,
+    title: `${site.name} — ${site.tagline}`,
     description: site.description,
     url: site.url,
     siteName: site.name,
+    locale: "en_GB",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: `${site.name} — ${site.tagline}`,
+    description: site.description,
+  },
+  alternates: { canonical: "/" },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

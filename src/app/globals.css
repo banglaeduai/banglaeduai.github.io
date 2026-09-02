@@ -49,38 +49,42 @@
 }
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
+  /* Deep-teal accent on warm paper. Light only — there is no dark-mode
+     toggle, so the `.dark` block below is inert and kept only for the
+     shadcn components that reference it. */
+  --background: #FAFAF8;
+  --foreground: #1A1D1E;
+  --card: #FFFFFF;
+  --card-foreground: #1A1D1E;
+  --popover: #FFFFFF;
+  --popover-foreground: #1A1D1E;
+  --primary: #0F6E6E;
+  --primary-foreground: #FAFAF8;
+  --secondary: #F0F0EA;
+  --secondary-foreground: #1A1D1E;
+  --muted: #F0F0EA;
+  --muted-foreground: #5B615F;
+  /* Tinted, so hover states read as part of the accent rather than gray. */
+  --accent: #E8F1F0;
+  --accent-foreground: #0C5757;
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
+  --border: #E4E4DF;
+  --input: #E4E4DF;
+  --ring: #0F6E6E;
+  --chart-1: #0F6E6E;
+  --chart-2: #2E8F86;
+  --chart-3: #5FAFA3;
+  --chart-4: #8FC9BF;
+  --chart-5: #C2E1DA;
   --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --sidebar: #FAFAF8;
+  --sidebar-foreground: #1A1D1E;
+  --sidebar-primary: #0F6E6E;
+  --sidebar-primary-foreground: #FAFAF8;
+  --sidebar-accent: #E8F1F0;
+  --sidebar-accent-foreground: #0C5757;
+  --sidebar-border: #E4E4DF;
+  --sidebar-ring: #0F6E6E;
 }
 
 .dark {
@@ -126,5 +130,15 @@
   }
   html {
     @apply font-sans;
+  }
+}
+
+@layer base {
+  ::selection {
+    background-color: color-mix(in oklab, var(--primary) 18%, transparent);
+  }
+  /* Links inside prose bodies pick up the accent without needing a class. */
+  a {
+    text-underline-offset: 4px;
   }
 }
