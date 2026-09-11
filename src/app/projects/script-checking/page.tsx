@@ -18,7 +18,7 @@ export default function ScriptCheckingPage() {
         href="/"
         className="text-sm text-muted-foreground hover:text-foreground"
       >
-        &larr; BengaliEduAI
+        &larr; BanglaEduAI
       </Link>
 
       <header className="mt-8 max-w-2xl">
@@ -67,7 +67,7 @@ export default function ScriptCheckingPage() {
         <div className="mt-4 space-y-4 leading-relaxed text-muted-foreground">
           <p>
             A script is not a form. Students write across margins, cross work
-            out, answer questions out of order, and switch between Bengali
+            out, answer questions out of order, and switch between Bangla
             prose, English technical terms, and notation that belongs to
             neither. Before anything can be marked, the page has to be segmented
             into answers and each answer matched to the question it belongs to.

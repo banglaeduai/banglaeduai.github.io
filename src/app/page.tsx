@@ -87,9 +87,9 @@ export default function Home() {
           {site.name}
         </h1>
         <p className="mt-6 max-w-2xl text-lg leading-relaxed text-foreground/85">
-          Bangladesh&rsquo;s classrooms run in Bengali; almost none of the
+          Bangladesh&rsquo;s classrooms run in Bangla; almost none of the
           language technology reshaping education elsewhere does. We build AI
-          systems that work in Bengali and hold up in a real classroom &mdash;
+          systems that work in Bangla and hold up in a real classroom &mdash;
           software that reads and marks handwritten exam scripts, and a tutor
           that works through a problem with a student instead of handing over
           the answer.
@@ -136,7 +136,7 @@ export default function Home() {
       <section className="py-16 sm:py-20">
         <SectionHeading>Projects</SectionHeading>
         <p className="mt-3 max-w-2xl text-muted-foreground">
-          Two systems, both aimed at the parts of Bengali-medium schooling that
+          Two systems, both aimed at the parts of Bangla-medium schooling that
           scale worst.
         </p>
 
@@ -258,7 +258,7 @@ export default function Home() {
           <div>
             <p className="text-sm leading-relaxed text-muted-foreground">
               We are happy to hear from prospective students at BUET who want to
-              work on Bengali language technology or on education systems, and
+              work on Bangla language technology or on education systems, and
               from groups doing related work elsewhere. Write to one of us
               directly, and say which of the two projects you are interested in.
             </p>

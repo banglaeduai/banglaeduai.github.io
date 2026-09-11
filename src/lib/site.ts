@@ -11,16 +11,16 @@
  */
 
 export const site = {
-  name: "BengaliEduAI",
-  shortName: "BengaliEduAI",
-  tagline: "AI for Bengali-medium education",
+  name: "BanglaEduAI",
+  shortName: "BanglaEduAI",
+  tagline: "AI for Bangla-medium education",
   description:
-    "We build AI systems that work in Bengali and are useful in a real classroom: software that marks handwritten exam scripts, and a tutor that works through a problem with a student instead of answering it for them.",
+    "We build AI systems that work in Bangla and are useful in a real classroom: software that marks handwritten exam scripts, and a tutor that works through a problem with a student instead of answering it for them.",
   // Used for <link rel="canonical"> and social cards.
-  // TODO: confirm — bengalieduai.github.io, or a path under cse.buet.ac.bd?
+  // TODO: confirm — banglaeduai.github.io, or a path under cse.buet.ac.bd?
   // A custom domain later is just a CNAME file; a subpath under an existing
   // site would additionally need basePath and assetPrefix in next.config.ts.
-  url: "https://bengalieduai.github.io",
+  url: "https://banglaeduai.github.io",
   // TODO: Anindya Iqbal's BUET address. Left empty deliberately — not guessed.
   email: "",
   affiliation:
@@ -33,7 +33,7 @@ export const site = {
   // Shown in the footer. Bump this whenever the content changes.
   lastUpdated: "2026-09-02",
   socials: {
-    github: "https://github.com/bengalieduai",
+    github: "https://github.com/banglaeduai",
     scholar: "",
     twitter: "",
   },
@@ -125,14 +125,14 @@ export const projects: Project[] = [
     slug: "tutor",
     title: "Pedagogical conversational agent",
     summary:
-      "A Bengali-speaking tutor that works a student through a problem rather than handing over the answer.",
+      "A Bangla-speaking tutor that works a student through a problem rather than handing over the answer.",
     intro:
-      "A student who is given the answer learns very little. This project builds a conversational tutor in Bengali that responds to what a student has actually misunderstood — asking the next useful question, holding back the solution, and staying on the pedagogy rather than simply being fluent.",
+      "A student who is given the answer learns very little. This project builds a conversational tutor in Bangla that responds to what a student has actually misunderstood — asking the next useful question, holding back the solution, and staying on the pedagogy rather than simply being fluent.",
     status:
       "A working prototype exists and has been used in real tutoring sessions. Wider evaluation is ongoing.",
     cover: {
       src: "",
-      alt: "A tutoring conversation in Bengali between a student and the agent",
+      alt: "A tutoring conversation in Bangla between a student and the agent",
       caption: "A tutoring exchange: the agent narrows in rather than resolving.",
       aspect: "4 / 3",
     },
@@ -160,7 +160,7 @@ export const scriptFigures: Figure[] = [
 ];
 
 /**
- * A short real excerpt from a tutoring session, Bengali with an English gloss.
+ * A short real excerpt from a tutoring session, Bangla with an English gloss.
  * TODO: paste the real transcript here. Until then the project page shows a
  * placeholder in its place rather than invented dialogue.
  */
@@ -184,9 +184,9 @@ export type Theme = {
 /** Derived from the two projects — not aspirational areas. */
 export const approach: Theme[] = [
   {
-    title: "Bengali first, not Bengali last",
+    title: "Bangla first, not Bangla last",
     summary:
-      "Bengali handwriting, orthography and classroom register are the starting point, not a translation layer bolted onto an English system. Most of what makes these problems hard is specific to the language and to how it is written by hand under exam conditions.",
+      "Bangla handwriting, orthography and classroom register are the starting point, not a translation layer bolted onto an English system. Most of what makes these problems hard is specific to the language and to how it is written by hand under exam conditions.",
   },
   {
     title: "Judgements a teacher can check",
@@ -222,7 +222,7 @@ export const faculty: Person[] = [
   {
     name: "Rifat Shahriyar",
     role: "Professor, Department of CSE, BUET",
-    bio: "Works on natural language processing for Bengali and on software engineering. Co-leads BengaliEduAI's work on language technology for Bengali-medium classrooms.",
+    bio: "Works on natural language processing for Bangla and on software engineering. Co-leads BanglaEduAI's work on language technology for Bangla-medium classrooms.",
     image: "",
     email: "",
     scholar: "",
@@ -230,7 +230,7 @@ export const faculty: Person[] = [
   {
     name: "Anindya Iqbal",
     role: "Professor, Department of CSE, BUET",
-    bio: "Works on machine learning and software engineering. Co-leads BengaliEduAI, and is the point of contact for the lab.",
+    bio: "Works on machine learning and software engineering. Co-leads BanglaEduAI, and is the point of contact for the lab.",
     image: "",
     email: "",
     scholar: "",
@@ -255,9 +255,9 @@ export type ResearchArea = {
 
 export const researchAreas: ResearchArea[] = [
   {
-    title: "Low-resource Bengali NLP",
+    title: "Low-resource Bangla NLP",
     summary:
-      "Pretraining, tokenization, and evaluation for Bengali and its dialects, with a focus on data-efficient methods that work without web-scale corpora.",
+      "Pretraining, tokenization, and evaluation for Bangla and its dialects, with a focus on data-efficient methods that work without web-scale corpora.",
     tags: ["NLP", "Pretraining", "Evaluation"],
   },
   {
@@ -269,7 +269,7 @@ export const researchAreas: ResearchArea[] = [
   {
     title: "Automated assessment",
     summary:
-      "Short-answer and essay grading for Bengali-medium classrooms, including calibration, rubric alignment, and fairness across dialects.",
+      "Short-answer and essay grading for Bangla-medium classrooms, including calibration, rubric alignment, and fairness across dialects.",
     tags: ["Assessment", "Fairness"],
   },
   {

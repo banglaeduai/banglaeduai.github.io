@@ -1,7 +1,7 @@
-# bengalieduai
+# banglaeduai
 
-Lab website for Bengali EduAI. Next.js static export, deployed to GitHub Pages
-at <https://bengalieduai.github.io>.
+Lab website for Bangla EduAI. Next.js static export, deployed to GitHub Pages
+at <https://banglaeduai.github.io>.
 
 ## Stack
 
@@ -74,11 +74,11 @@ static export and publishes `./out` to GitHub Pages.
 One-time setup in the repo settings:
 
 1. **Settings → Pages → Build and deployment → Source: GitHub Actions**
-2. The repo must be named `bengalieduai.github.io` to serve at the bare
-   `https://bengalieduai.github.io` domain.
+2. The repo must be named `banglaeduai.github.io` to serve at the bare
+   `https://banglaeduai.github.io` domain.
 
 If you later rename the repo to something else, the site moves to
-`https://bengalieduai.github.io/<repo>/` and you must add a matching
+`https://banglaeduai.github.io/<repo>/` and you must add a matching
 `basePath` and `assetPrefix` to `next.config.ts`.
 
 ### Static export constraints

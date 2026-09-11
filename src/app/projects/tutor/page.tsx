@@ -17,7 +17,7 @@ export default function TutorPage() {
         href="/"
         className="text-sm text-muted-foreground hover:text-foreground"
       >
-        &larr; BengaliEduAI
+        &larr; BanglaEduAI
       </Link>
 
       <header className="mt-8 max-w-2xl">
@@ -39,7 +39,7 @@ export default function TutorPage() {
           A session, in part
         </h2>
         <p className="mt-3 text-muted-foreground">
-          An excerpt from a real tutoring session, in Bengali, with an English
+          An excerpt from a real tutoring session, in Bangla, with an English
           gloss underneath each turn.
         </p>
 
@@ -86,10 +86,10 @@ export default function TutorPage() {
             see it themselves.
           </p>
           <p>
-            Doing that in Bengali is not a translation problem. The register a
+            Doing that in Bangla is not a translation problem. The register a
             student uses with a teacher, the way a problem is stated in a
-            Bengali-medium textbook, and the English technical vocabulary that
-            sits inside otherwise-Bengali sentences all have to be handled as
+            Bangla-medium textbook, and the English technical vocabulary that
+            sits inside otherwise-Bangla sentences all have to be handled as
             they actually occur.
           </p>
         </div>

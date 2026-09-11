@@ -18,7 +18,7 @@ export default function ResearchPage() {
       <p className="mt-4 max-w-2xl text-muted-foreground">
         Our work spans language modelling, assessment, and speech, held together
         by one question: what does it take for AI systems to actually help a
-        Bengali-speaking student learn?
+        Bangla-speaking student learn?
       </p>
 
       <div className="mt-12 grid gap-6 sm:grid-cols-2">
