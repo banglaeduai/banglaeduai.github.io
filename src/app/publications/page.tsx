@@ -6,6 +6,7 @@ import { publications } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Publications",
   description: "Papers and preprints from the lab.",
+  alternates: { canonical: "/publications/" },
 };
 
 export default function PublicationsPage() {

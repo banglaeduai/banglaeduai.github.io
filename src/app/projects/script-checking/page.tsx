@@ -9,6 +9,7 @@ const project = projects.find((p) => p.slug === "script-checking")!;
 export const metadata: Metadata = {
   title: project.title,
   description: project.summary,
+  alternates: { canonical: `/projects/${project.slug}/` },
 };
 
 export default function ScriptCheckingPage() {

@@ -7,6 +7,7 @@ import { researchAreas } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Research",
   description: "Research areas and ongoing projects.",
+  alternates: { canonical: "/research/" },
 };
 
 export default function ResearchPage() {

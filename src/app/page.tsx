@@ -1,8 +1,17 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
 import { PersonCard } from "@/components/person-card";
 import { collaborators, faculty, projects, site } from "@/lib/site";
+
+// Title, description and social card come from the root layout; only the
+// canonical URL is per-page. Next.js emits no canonical tag unless a page
+// sets one, and setting it in the layout instead would make every page in the
+// site inherit it and claim to be the homepage.
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 function SectionHeading({ children }: { children: React.ReactNode }) {
   return (

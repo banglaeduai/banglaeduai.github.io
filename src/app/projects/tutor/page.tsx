@@ -8,6 +8,7 @@ const project = projects.find((p) => p.slug === "tutor")!;
 export const metadata: Metadata = {
   title: project.title,
   description: project.summary,
+  alternates: { canonical: `/projects/${project.slug}/` },
 };
 
 export default function TutorPage() {

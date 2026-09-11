@@ -7,6 +7,7 @@ import { alumni, people, type Person } from "@/lib/site";
 export const metadata: Metadata = {
   title: "People",
   description: "Members of the lab.",
+  alternates: { canonical: "/people/" },
 };
 
 function initials(name: string) {
