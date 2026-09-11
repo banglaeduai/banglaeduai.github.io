@@ -42,20 +42,20 @@ export default function ScriptCheckingPage() {
           What the system produces
         </h2>
         <p className="mt-3 max-w-2xl text-muted-foreground">
-          The output of a run is an annotated script. Each region the system has
+          The output of a run is a marked script. Each region the system has
           read is boxed, mapped to the question it answers, and given a
-          judgement with a confidence attached &mdash; so a human examiner can
-          see not just what the system decided but what it was looking at.
+          judgement with its evidence attached &mdash; so a human examiner can
+          see not just what the system decided but what it was looking at. The
+          recordings below are of the working system, at their original speed.
         </p>
 
-        <div className="mt-10 space-y-14">
+        <div className="mt-10 space-y-16">
           {scriptFigures.map((figure, i) => (
             <Figure
               key={figure.caption}
               figure={figure}
               priority={i === 0}
-              layout="side"
-              sizes="(min-width: 768px) 26rem, 100vw"
+              sizes="(min-width: 1024px) 64rem, 100vw"
             />
           ))}
         </div>

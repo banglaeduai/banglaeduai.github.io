@@ -6,7 +6,14 @@ import type { Figure as FigureData } from "@/lib/site";
 /**
  * A captioned figure that degrades to a correctly-proportioned placeholder
  * while the real asset is missing, so the layout does not shift once the
- * images land in `public/projects/`.
+ * images land in `public/demo/`.
+ *
+ * A figure with `video` set renders as a muted, looping, inline video with no
+ * player chrome — it reads as a moving screenshot rather than as something to
+ * be played. `muted` is not decorative: no browser will autoplay without it.
+ * `playsInline` stops iOS taking the video fullscreen, and the poster frame
+ * stands in both while the file loads and if autoplay is refused anyway (Low
+ * Power Mode, or a visitor who has turned autoplay off).
  */
 export function Figure({
   figure,
@@ -35,7 +42,21 @@ export function Figure({
         className="relative overflow-hidden rounded-lg bg-muted ring-1 ring-border"
         style={{ aspectRatio: figure.aspect }}
       >
-        {figure.src ? (
+        {figure.video ? (
+          <video
+            src={figure.video}
+            poster={figure.poster}
+            autoPlay
+            muted
+            loop
+            playsInline
+            // Not preload="none": that would defeat autoplay. The poster is
+            // what covers the gap before the first frame arrives.
+            preload="metadata"
+            aria-label={figure.alt}
+            className="size-full object-contain"
+          />
+        ) : figure.src ? (
           <Image
             src={figure.src}
             alt={figure.alt}

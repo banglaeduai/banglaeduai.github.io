@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-import { projects, tutorTranscript } from "@/lib/site";
+import { Figure } from "@/components/figure";
+import { projects, tutorFigures, tutorTranscript } from "@/lib/site";
 
 const project = projects.find((p) => p.slug === "tutor")!;
 
@@ -58,7 +59,10 @@ export default function TutorPage() {
                 <p className="text-xs font-medium tracking-wide text-muted-foreground uppercase">
                   {turn.speaker === "tutor" ? "Tutor" : "Student"}
                 </p>
-                <p lang="bn" className="mt-2 text-lg leading-relaxed">
+                <p
+                  lang={turn.lang ?? "bn"}
+                  className="mt-2 text-lg leading-relaxed"
+                >
                   {turn.bn}
                 </p>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
@@ -72,9 +76,40 @@ export default function TutorPage() {
             Transcript to come.
           </div>
         )}
+
+        <p className="mt-8 leading-relaxed text-muted-foreground">
+          Two things in that exchange are the whole point of the project. The
+          student writes Bangla in Latin letters, the way students actually
+          type, and is answered in Bangla. And the tutor stops on a question
+          rather than on the answer.
+        </p>
       </section>
 
-      <section className="mt-16 max-w-2xl">
+      {/* The tutor is a visual system as much as a conversational one, so the
+          captures carry weight the transcript cannot. */}
+      <section className="mt-20">
+        <h2 className="font-heading text-2xl font-semibold tracking-tight">
+          What the student sees
+        </h2>
+        <p className="mt-3 max-w-2xl text-muted-foreground">
+          Explanations are grounded in the student&rsquo;s own textbook, and a
+          proof or a piece of physics is built up in front of them rather than
+          asserted. The recordings below are of the working prototype.
+        </p>
+
+        <div className="mt-10 space-y-16">
+          {tutorFigures.map((figure, i) => (
+            <Figure
+              key={figure.caption}
+              figure={figure}
+              priority={i === 0}
+              sizes="(min-width: 1024px) 64rem, 100vw"
+            />
+          ))}
+        </div>
+      </section>
+
+      <section className="mt-20 max-w-2xl">
         <h2 className="font-heading text-2xl font-semibold tracking-tight">
           What we are aiming at
         </h2>

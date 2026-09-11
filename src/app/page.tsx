@@ -118,9 +118,11 @@ export default function Home() {
                 className="group block"
                 aria-label={project.title}
               >
+                {/* Fixed 16:9 rather than each cover's own aspect, so the two
+                    cards line up. Both covers are wide UI captures. */}
                 <div
                   className="relative overflow-hidden rounded-lg bg-muted ring-1 ring-border transition-colors group-hover:ring-primary/40"
-                  style={{ aspectRatio: "4 / 3" }}
+                  style={{ aspectRatio: "16 / 9" }}
                 >
                   {project.cover.src ? (
                     <Image

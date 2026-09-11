@@ -120,8 +120,22 @@ export const collaborators: Collaborator[] = [
 /* -------------------------------------------------------------------------- */
 
 export type Figure = {
-  /** Put the file in `public/projects/` and set e.g. "/projects/script-1.jpg". */
+  /** Path under `public/`, e.g. "/demo/script/script-image-2.png". */
   src?: string;
+  /**
+   * Path to a silent, faststart MP4 under `public/demo/`. When this is set the
+   * figure renders as an autoplaying, muted, looping, inline video — which
+   * behaves like a GIF at a fraction of the size — and `src` is ignored.
+   *
+   * Always point this at a `-web.mp4`: see the note above `scriptFigures` for
+   * what those are and how they are produced.
+   */
+  video?: string;
+  /**
+   * First frame of `video`, shown instantly while the file loads and left on
+   * screen if the browser refuses to autoplay.
+   */
+  poster?: string;
   alt: string;
   caption: string;
   /** CSS aspect ratio for the frame, so placeholders match the real asset. */
@@ -150,14 +164,13 @@ export const projects: Project[] = [
     intro:
       "Marking is the part of a national examination system that scales worst. A script-checking system reads a student's handwritten answer, works out which question it is answering, and decides whether it is right — pointing at the exact region of the page it based that decision on. The output is not a bare grade but an annotated script a human examiner can audit.",
     status:
-      "The underlying system is mature and evaluated on real scripts. There is no public interface yet, and no online demo.",
+      "The system runs end to end on real scripts. What is shown here is an internal evaluation build: there is no interface yet that anyone outside the project can use.",
     cover: {
-      // TODO: drop the annotated script images in `public/projects/`.
-      src: "",
-      alt: "An annotated exam script with bounding boxes over the student's answer",
+      src: "/demo/script/script-image-2.png",
+      alt: "The evaluation workspace: a marked handwritten physics script beside the rubric criteria the system awarded and withheld",
       caption:
-        "An annotated script: each detected answer region is boxed and scored.",
-      aspect: "1 / 1.414",
+        "A marked script: every criterion met or lost, and the region of the page behind each verdict.",
+      aspect: "16 / 9",
     },
   },
   {
@@ -170,46 +183,149 @@ export const projects: Project[] = [
     status:
       "A working prototype exists and has been used in real tutoring sessions. Wider evaluation is ongoing.",
     cover: {
-      src: "",
-      alt: "A tutoring conversation in Bangla between a student and the agent",
-      caption: "A tutoring exchange: the agent narrows in rather than resolving.",
-      aspect: "4 / 3",
+      src: "/demo/pedagogical_conv/book-reference.png",
+      alt: "A tutoring conversation in Bangla, with the matching figure from the student's own textbook shown alongside",
+      caption:
+        "A tutoring exchange, grounded in the page of the textbook the student is working from.",
+      aspect: "16 / 9",
     },
   },
 ];
 
-/** Extra annotated-script figures for the script-checking project page. */
+/**
+ * Figures for the script-checking project page, in the order they are shown.
+ *
+ * A note on the video files. Everything under `public/demo/` is a real capture
+ * of the working systems. The `-web.mp4` files are what this site actually
+ * serves: silent, and with the MP4 index moved to the front so playback can
+ * start before the whole file has downloaded. They were produced from the
+ * originals by stream copy, so there is no re-encoding loss:
+ *
+ *   ffmpeg -i script-demo-1.mp4 -c:v copy -an -movflags +faststart \
+ *          script-demo-1-web.mp4
+ *
+ * The `-poster.jpg` beside each one is its first frame. The originals, the
+ * `-silent` intermediates and the large `-compressed.gif` versions are all kept
+ * in the repository but are not referenced by the site.
+ */
 export const scriptFigures: Figure[] = [
   {
-    // TODO: the example catching a wrong chemistry formula — the strongest
-    // single asset we have. Show it large.
-    src: "",
-    alt: "An annotated script where the system has flagged an incorrect chemistry formula written by the student",
+    // The strongest single asset on the site: a real system finding a real
+    // error. Shown first, and shown large.
+    src: "/demo/script/script-image-2.png",
+    alt: "A marked script: the student's handwritten mean-free-path working, with a red box around the incorrect final value, beside four rubric criteria the system has marked met or lost",
     caption:
-      "The system flags an incorrect chemistry formula in a student's answer, with the region it is judging and its confidence in the judgement.",
-    aspect: "1 / 1.414",
+      "A handwritten physics answer marked 4 out of 10. The system awards the two criteria the student met, withholds the two they did not, and boxes the incorrect final value on the page \u2014 so the mark can be checked against the evidence rather than taken on trust.",
+    aspect: "16 / 9",
   },
   {
-    src: "",
-    alt: "An annotated script showing detected answer regions across a full page",
+    video: "/demo/script/script-demo-1-web.mp4",
+    poster: "/demo/script/script-demo-1-poster.jpg",
+    alt: "Screen recording of the grading pipeline running on a relative-velocity question, stepping through reading, verifying, synthesising, supervising and examining",
     caption:
-      "Answer regions detected across a full page, each mapped back to the question it responds to.",
-    aspect: "1 / 1.414",
+      "A full run on a relative-velocity question. The pipeline reads the handwriting, checks the reference solution, synthesises the marking scheme the board never supplied, re-reads the script, and only then marks it step by step.",
+    aspect: "16 / 9",
+  },
+  {
+    video: "/demo/script/script-demo-2-web.mp4",
+    poster: "/demo/script/script-demo-2-poster.jpg",
+    alt: "Screen recording of the same pipeline grading a vector algebra question and locating its evidence on the page",
+    caption:
+      "The same pipeline on a vector algebra question, ending by pointing each verdict at the exact lines of the script it came from.",
+    aspect: "16 / 9",
+  },
+  {
+    src: "/demo/script/script-image-1.png",
+    alt: "The evaluation workspace overview, describing a seven-agent grading pipeline",
+    caption:
+      "Marking is split across seven specialised agents rather than asked of a single model, which is what makes each step separately checkable.",
+    aspect: "16 / 9",
+  },
+];
+
+/** Figures for the tutor project page, in the order they are shown. */
+export const tutorFigures: Figure[] = [
+  {
+    src: "/demo/pedagogical_conv/book-reference.png",
+    alt: "The tutor answering a physics question in Bangla, with the cited figure and page from the student's NCTB textbook shown in a panel alongside",
+    caption:
+      "The student asks in romanised Bangla and is answered in Bangla, alongside the exact figure and page of the national textbook the explanation is drawn from \u2014 the same edition they have in front of them.",
+    aspect: "2064 / 1421",
+  },
+  {
+    video: "/demo/pedagogical_conv/geometry-demo-1-web.mp4",
+    poster: "/demo/pedagogical_conv/geometry-demo-1-poster.jpg",
+    alt: "An animated geometric proof that the diagonals of a parallelogram bisect each other, built up step by step beside the written proof in Bangla",
+    caption:
+      "A proof that the diagonals of a parallelogram bisect each other, drawn one step at a time against the written argument in Bangla, at a pace the student controls.",
+    aspect: "16 / 9",
+  },
+  {
+    video: "/demo/pedagogical_conv/geometry-demo-2-web.mp4",
+    poster: "/demo/pedagogical_conv/geometry-demo-2-poster.jpg",
+    alt: "An animated construction showing why the three angles of a triangle sum to 180 degrees, beside the written proof in Bangla",
+    caption:
+      "The angle sum of a triangle: the auxiliary parallel line appears at the moment the proof needs it, rather than being given at the start.",
+    aspect: "16 / 9",
+  },
+  {
+    src: "/demo/pedagogical_conv/simulation-example-1.png",
+    alt: "An interactive circuit model with sliders for two parallel resistors, a series resistor and the supply voltage, and a task set underneath",
+    caption:
+      "Where a diagram is not enough, the tutor builds a model the student can manipulate, and then sets them a target to reach with it.",
+    aspect: "1475 / 987",
+  },
+  {
+    src: "/demo/pedagogical_conv/math-viz-1.jpg",
+    alt: "The tutor deriving the sine addition formula in Bangla, beside an adjustable unit-circle construction of the same identity",
+    caption:
+      "The sine addition formula worked through in Bangla, beside a construction of the same identity the student can move.",
+    aspect: "1280 / 619",
   },
 ];
 
 /**
  * A short real excerpt from a tutoring session, Bangla with an English gloss.
- * TODO: paste the real transcript here. Until then the project page shows a
- * placeholder in its place rather than invented dialogue.
+ *
+ * Transcribed from the session captured in
+ * `public/demo/pedagogical_conv/book-reference.png`. It is set as real text
+ * rather than left to the screenshot alone so that it is selectable, findable
+ * and readable by a screen reader.
+ *
+ * The tutor's opening pleasantries, which recap that particular student's
+ * earlier sessions, are trimmed; the physics and the question it ends on are
+ * verbatim.
  */
 export type TranscriptTurn = {
   speaker: "student" | "tutor";
   bn: string;
   en: string;
+  /**
+   * BCP 47 tag for the `bn` field. Defaults to Bangla in Bengali script.
+   * Students very often type Bangla in Latin letters, which is "bn-Latn" —
+   * tagging it correctly stops a screen reader reading it as English.
+   */
+  lang?: string;
 };
 
-export const tutorTranscript: TranscriptTurn[] = [];
+export const tutorTranscript: TranscriptTurn[] = [
+  {
+    speaker: "student",
+    lang: "bn-Latn",
+    bn: "ekta charghed golok theke ekta uncharged golok ke sporsho korle keno charge probahito hoy?",
+    en: "Why does charge flow when a charged sphere is touched to an uncharged one?",
+  },
+  {
+    speaker: "tutor",
+    bn: "\u099a\u09be\u09b0\u09cd\u099c \u09aa\u09cd\u09b0\u09ac\u09be\u09b9\u09bf\u09a4 \u09b9\u09af\u09bc \u0995\u09be\u09b0\u09a3 \u09a6\u09c1\u099f\u09bf \u0997\u09cb\u09b2\u0995\u09c7\u09b0 \u09ae\u09a7\u09cd\u09af\u09c7 \u09ac\u09c8\u09a6\u09cd\u09af\u09c1\u09a4\u09bf\u0995 \u09ac\u09bf\u09ad\u09ac\u09c7\u09b0 \u09aa\u09be\u09b0\u09cd\u09a5\u0995\u09cd\u09af \u09a5\u09be\u0995\u09c7\u0964 \u0989\u099a\u09cd\u099a \u09ac\u09bf\u09ad\u09ac\u09c7\u09b0 \u09b6\u09b0\u09c0\u09b0 \u09a5\u09c7\u0995\u09c7 \u09a8\u09bf\u09ae\u09cd\u09a8 \u09ac\u09bf\u09ad\u09ac\u09c7\u09b0 \u09b6\u09b0\u09c0\u09b0\u09c7 \u099a\u09be\u09b0\u09cd\u099c \u09aa\u09cd\u09b0\u09ac\u09be\u09b9\u09bf\u09a4 \u09b9\u09a4\u09c7 \u099a\u09be\u09af\u09bc \u09af\u09a4\u0995\u09cd\u09b7\u09a3 \u09a8\u09be \u0989\u09ad\u09af\u09bc \u09b8\u09cd\u09a5\u09be\u09a8\u09c7\u09b0 \u09ac\u09bf\u09ad\u09ac \u09b8\u09ae\u09be\u09a8 \u09b9\u09af\u09bc\u0964 \u098f\u0987 \u09ac\u09bf\u09ad\u09ac \u09aa\u09be\u09b0\u09cd\u09a5\u0995\u09cd\u09af\u0987 \u099a\u09be\u09b0\u09cd\u099c \u099a\u09b2\u09be\u099a\u09b2\u09c7\u09b0 \u09ae\u09c2\u09b2 \u099a\u09be\u09b2\u09bf\u0995\u09be\u09b6\u0995\u09cd\u09a4\u09bf\u0964",
+    en: "Charge flows because there is a difference in electric potential between the two spheres. Charge tends to flow from the body at higher potential to the body at lower potential, until the potential is equal at both. That potential difference is the thing driving the movement of charge.",
+  },
+  {
+    speaker: "tutor",
+    bn: "\u09a4\u09cb\u09ae\u09be\u09b0 \u09ae\u09a4\u09c7, \u098f\u0995\u099f\u09bf \u099a\u09be\u09b0\u09cd\u099c\u09bf\u09a4 \u0997\u09cb\u09b2\u0995 \u098f\u09ac\u0982 \u098f\u0995\u099f\u09bf \u099a\u09be\u09b0\u09cd\u099c\u09b9\u09c0\u09a8 \u0997\u09cb\u09b2\u0995\u09c7\u09b0 \u09ae\u09a7\u09cd\u09af\u09c7 \u0995\u09be\u09b0 \u09ac\u09c8\u09a6\u09cd\u09af\u09c1\u09a4\u09bf\u0995 \u09ac\u09bf\u09ad\u09ac \u09ac\u09c7\u09b6\u09bf \u09b9\u09ac\u09c7?",
+    en: "In your view, which will have the higher electric potential \u2014 a charged sphere, or an uncharged one?",
+  },
+];
 
 /* -------------------------------------------------------------------------- */
 /* Approach                                                                    */
