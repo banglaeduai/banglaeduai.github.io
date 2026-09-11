@@ -5,7 +5,7 @@ import { nav, site } from "@/lib/site";
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 border-b bg-background/85 backdrop-blur">
-      <div className="mx-auto flex max-w-5xl flex-col gap-1 px-6 py-3 sm:h-16 sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:py-0">
+      <div className="mx-auto flex max-w-3xl flex-col gap-1 px-6 py-3 sm:h-16 sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:py-0">
         <Link
           href="/"
           className="font-heading text-base font-semibold tracking-tight"

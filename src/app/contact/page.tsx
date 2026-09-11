@@ -4,7 +4,7 @@ import Link from "next/link";
 import { PersonCard } from "@/components/person-card";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { faculty, site } from "@/lib/site";
+import { faculty, site, team } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <div className="mx-auto max-w-5xl px-6 py-12 sm:py-16">
+    <div className="mx-auto max-w-3xl px-6 py-12 sm:py-16">
       <Link
         href="/"
         className="text-sm text-muted-foreground hover:text-foreground"
@@ -22,7 +22,7 @@ export default function ContactPage() {
         &larr; {site.shortName}
       </Link>
 
-      <header className="mt-8 max-w-2xl">
+      <header className="mt-8">
         <h1 className="font-heading text-3xl font-semibold tracking-tight sm:text-4xl">
           Contact
         </h1>
@@ -96,6 +96,21 @@ export default function ContactPage() {
             <PersonCard key={person.name} person={person} />
           ))}
         </div>
+
+        {/* The rest of the team, under the two professors. Names only: nobody
+            here has a confirmed role or address on the site yet, and a made-up
+            title is worse than none. Set on each entry in `site.ts` when they
+            are confirmed — `PersonCard` above is ready for them. */}
+        {team.length > 0 ? (
+          <div className="mt-14">
+            <h3 className="font-heading text-lg font-medium">Project team</h3>
+            <ul className="mt-5 grid gap-x-10 gap-y-2 text-sm sm:grid-flow-col sm:grid-cols-2 sm:grid-rows-2">
+              {team.map((person) => (
+                <li key={person.name}>{person.name}</li>
+              ))}
+            </ul>
+          </div>
+        ) : null}
       </section>
     </div>
   );

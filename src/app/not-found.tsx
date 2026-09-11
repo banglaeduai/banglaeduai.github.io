@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 
 export default function NotFound() {
   return (
-    <div className="mx-auto flex max-w-5xl flex-col items-start px-6 py-32">
+    <div className="mx-auto flex max-w-3xl flex-col items-start px-6 py-32">
       <p className="font-heading text-sm font-semibold tracking-widest text-muted-foreground">
         404
       </p>

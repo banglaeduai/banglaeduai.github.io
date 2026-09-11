@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function TutorPage() {
   return (
-    <div className="mx-auto max-w-5xl px-6 py-12 sm:py-16">
+    <div className="mx-auto max-w-3xl px-6 py-12 sm:py-16">
       <Link
         href="/"
         className="text-sm text-muted-foreground hover:text-foreground"
@@ -22,7 +22,7 @@ export default function TutorPage() {
         &larr; BanglaEduAI
       </Link>
 
-      <header className="mt-8 max-w-2xl">
+      <header className="mt-8">
         <p className="text-xs font-medium tracking-wide text-primary uppercase">
           Project
         </p>
@@ -36,7 +36,7 @@ export default function TutorPage() {
 
       {/* A transcript demonstrates the pedagogy better than a screenshot does,
           and needs no image assets. */}
-      <section className="mt-14 max-w-2xl">
+      <section className="mt-14">
         <h2 className="font-heading text-2xl font-semibold tracking-tight">
           A session, in part
         </h2>
@@ -91,13 +91,13 @@ export default function TutorPage() {
         <h2 className="font-heading text-2xl font-semibold tracking-tight">
           What the student sees
         </h2>
-        <p className="mt-3 max-w-2xl text-muted-foreground">
+        <p className="mt-3 text-muted-foreground">
           Explanations are grounded in the student&rsquo;s own textbook, and a
           proof or a piece of physics is built up in front of them rather than
           asserted. The recordings below are of the working prototype.
         </p>
 
-        <div className="mt-10 space-y-16">
+        <div className="mt-10 space-y-16 lg:-mx-24">
           {tutorFigures.map((figure, i) => (
             <Figure
               key={figure.caption}
@@ -109,7 +109,7 @@ export default function TutorPage() {
         </div>
       </section>
 
-      <section className="mt-20 max-w-2xl">
+      <section className="mt-20">
         <h2 className="font-heading text-2xl font-semibold tracking-tight">
           What we are aiming at
         </h2>
@@ -131,7 +131,7 @@ export default function TutorPage() {
         </div>
       </section>
 
-      <section className="mt-16 max-w-2xl border-t pt-8">
+      <section className="mt-16 border-t pt-8">
         <h2 className="font-heading text-lg font-medium">Where it stands</h2>
         <p className="mt-3 leading-relaxed text-muted-foreground">
           {project.status}

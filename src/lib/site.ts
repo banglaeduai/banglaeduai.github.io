@@ -21,8 +21,9 @@ export const site = {
   // A custom domain later is just a CNAME file; a subpath under an existing
   // site would additionally need basePath and assetPrefix in next.config.ts.
   url: "https://banglaeduai.github.io",
-  // TODO: Anindya Iqbal's BUET address. Left empty deliberately — not guessed.
-  email: "",
+  // Anindya Iqbal's BUET address, as the lab's point of contact. Taken from
+  // his department profile page, not guessed.
+  email: "anindya@cse.buet.ac.bd",
   affiliation:
     "Department of Computer Science and Engineering, Bangladesh University of Engineering and Technology",
   affiliationShort: "Department of CSE, BUET",
@@ -30,7 +31,8 @@ export const site = {
   // TODO: building and room number for the Contact section.
   room: "",
   campusMap: "https://maps.app.goo.gl/",
-  // Shown in the footer. Bump this whenever the content changes.
+  // Nothing renders this: the "Last updated" line was taken out of the footer.
+  // Kept so the date is available if a page ever wants it again.
   lastUpdated: "2026-09-11",
   socials: {
     github: "https://github.com/banglaeduai",
@@ -78,7 +80,7 @@ export const collaborators: Collaborator[] = [
     // The Secondary and Higher Education Division of the ministry is the
     // executing agency for ICSETEP. Both use the Government Seal.
     name: "Ministry of Education",
-    role: "Secondary and Higher Education Division",
+    role: "Executing agency",
     href: "https://moedu.gov.bd/",
     logo: "/logos/bangladesh-govt-seal.svg",
     logoAlt: "Government Seal of Bangladesh",
@@ -101,18 +103,20 @@ export const collaborators: Collaborator[] = [
     role: "Research & Development Grant",
     href: "https://rdgicsetep.ugc.gov.bd/",
   },
-  {
-    // TODO: exact funder wording and grant number — check the tender documents.
-    // Grant numbers are sometimes an acknowledgement requirement.
-    //
-    // Deliberately no logo. ADB controls its branding tightly and ADB-funded
-    // projects have visibility rules to follow; the ICSETEP PMU has to confirm
-    // which logo set and acknowledgement wording they approve before we use
-    // the mark. Until then the name alone is the safe thing to show.
-    name: "Asian Development Bank",
-    role: "Funding",
-    href: "https://www.adb.org/",
-  },
+  // The Asian Development Bank funds ICSETEP and belongs in any full account
+  // of where the money comes from, but it is deliberately NOT in this band.
+  // ADB controls its branding tightly and ADB-funded projects have visibility
+  // rules to follow, so both the mark and the acknowledgement wording need the
+  // ICSETEP PMU's sign-off first. Restore the entry once that comes through:
+  //
+  //   {
+  //     name: "Asian Development Bank",
+  //     role: "Funding",
+  //     href: "https://www.adb.org/",
+  //   },
+  //
+  // TODO: ask the PMU for the approved logo set and acknowledgement wording,
+  // and for the grant number — check the tender documents.
 ];
 
 /* -------------------------------------------------------------------------- */
@@ -234,14 +238,14 @@ export const scriptFigures: Figure[] = [
       "The same pipeline on a vector algebra question, ending by pointing each verdict at the exact lines of the script it came from.",
     aspect: "16 / 9",
   },
-  {
-    src: "/demo/script/script-image-1.png",
-    alt: "The evaluation workspace overview, describing a seven-agent grading pipeline",
-    caption:
-      "Marking is split across seven specialised agents rather than asked of a single model, which is what makes each step separately checkable.",
-    aspect: "16 / 9",
-  },
 ];
+
+/**
+ * Not shown: `/demo/script/script-image-1.png`, a screenshot of the workspace
+ * describing the seven-agent pipeline. It was the last figure on the page and
+ * was taken off because it shows no actual output — the recordings above
+ * already demonstrate the pipeline. The file is still in `public/demo/`.
+ */
 
 /** Figures for the tutor project page, in the order they are shown. */
 export const tutorFigures: Figure[] = [
@@ -381,29 +385,46 @@ export type Person = {
 // malformed, one truncated — so these are the working URLs, not the ones the
 // department site links to.
 //
-// TODO before publishing: confirm the bio wording and the email address with
-// each person individually, and confirm permission to host their photo here.
+// The addresses below are the BUET ones published on each profile page
+// (obfuscated there as "rifat AT cse DOT buet DOT ac DOT bd").
+//
+// TODO before publishing: confirm the bio wording with each person
+// individually, and confirm permission to host their photo here.
 export const faculty: Person[] = [
   {
     name: "Rifat Shahriyar",
     role: "Professor, Department of CSE, BUET",
     bio: "Works on natural language processing for Bangla and on software engineering. Co-leads BanglaEduAI's work on language technology for Bangla-medium classrooms.",
     image: "/people/rifat-shahriyar.jpg",
-    // TODO: BUET address. Left empty deliberately — not guessed.
-    email: "",
+    email: "rifat@cse.buet.ac.bd",
     scholar: "https://scholar.google.com/citations?user=p-w4hOUAAAAJ",
     link: "https://cse.buet.ac.bd/faculty/faculty_detail/rifat",
   },
   {
     name: "Anindya Iqbal",
     role: "Professor, Department of CSE, BUET",
-    bio: "Works on machine learning and software engineering. Co-leads BanglaEduAI, and is the point of contact for the lab.",
+    bio: "Works on machine learning and software engineering. Co-leads BanglaEduAI.",
     image: "/people/anindya-iqbal.jpg",
-    // TODO: BUET address. Left empty deliberately — not guessed.
-    email: "",
+    email: "anindya@cse.buet.ac.bd",
     scholar: "https://scholar.google.com/citations?user=jAuiNFgAAAAJ",
     link: "https://cse.buet.ac.bd/faculty/faculty_detail/anindyaiqbal",
   },
+];
+
+/**
+ * The rest of the project team, shown on the contact page under the two
+ * professors. Names only for now: roles, photos and addresses are deliberately
+ * absent rather than guessed at, and `PersonCard` simply omits every line it
+ * has no value for.
+ *
+ * TODO: role for each person, and their BUET addresses if they want to be
+ * written to directly.
+ */
+export const team: Person[] = [
+  { name: "Abtahi Majeed", role: "Research Engineer" },
+  { name: "Md. As-Aid Rahman Rafi", role: "Research Engineer" },
+  { name: "Md. Farhad Al-Amin Dipto", role: "Research Engineer" },
+  { name: "Oitijhya Hoque", role: "Research Engineer" },
 ];
 
 /* -------------------------------------------------------------------------- */

@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function ScriptCheckingPage() {
   return (
-    <div className="mx-auto max-w-5xl px-6 py-12 sm:py-16">
+    <div className="mx-auto max-w-3xl px-6 py-12 sm:py-16">
       <Link
         href="/"
         className="text-sm text-muted-foreground hover:text-foreground"
@@ -22,7 +22,7 @@ export default function ScriptCheckingPage() {
         &larr; BanglaEduAI
       </Link>
 
-      <header className="mt-8 max-w-2xl">
+      <header className="mt-8">
         <p className="text-xs font-medium tracking-wide text-primary uppercase">
           Project
         </p>
@@ -41,7 +41,7 @@ export default function ScriptCheckingPage() {
         <h2 className="font-heading text-2xl font-semibold tracking-tight">
           What the system produces
         </h2>
-        <p className="mt-3 max-w-2xl text-muted-foreground">
+        <p className="mt-3 text-muted-foreground">
           The output of a run is a marked script. Each region the system has
           read is boxed, mapped to the question it answers, and given a
           judgement with its evidence attached &mdash; so a human examiner can
@@ -49,7 +49,7 @@ export default function ScriptCheckingPage() {
           recordings below are of the working system, at their original speed.
         </p>
 
-        <div className="mt-10 space-y-16">
+        <div className="mt-10 space-y-16 lg:-mx-24">
           {scriptFigures.map((figure, i) => (
             <Figure
               key={figure.caption}
@@ -61,7 +61,7 @@ export default function ScriptCheckingPage() {
         </div>
       </section>
 
-      <section className="mt-16 max-w-2xl">
+      <section className="mt-16">
         <h2 className="font-heading text-2xl font-semibold tracking-tight">
           Why this is hard
         </h2>
@@ -83,7 +83,7 @@ export default function ScriptCheckingPage() {
         </div>
       </section>
 
-      <section className="mt-16 max-w-2xl border-t pt-8">
+      <section className="mt-16 border-t pt-8">
         <h2 className="font-heading text-lg font-medium">Where it stands</h2>
         <p className="mt-3 leading-relaxed text-muted-foreground">
           {project.status} What is shown on this page is output from the working

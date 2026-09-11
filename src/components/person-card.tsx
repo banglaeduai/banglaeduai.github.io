@@ -37,7 +37,9 @@ export function PersonCard({ person }: { person: Person }) {
 
       <div className="min-w-0">
         <h3 className="font-heading text-lg font-medium">{person.name}</h3>
-        <p className="text-sm text-muted-foreground">{person.role}</p>
+        {person.role ? (
+          <p className="text-sm text-muted-foreground">{person.role}</p>
+        ) : null}
         {person.bio ? <p className="mt-3 text-sm">{person.bio}</p> : null}
 
         <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-sm">
