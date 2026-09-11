@@ -61,11 +61,11 @@ export default function TutorPage() {
                 </p>
                 <p
                   lang={turn.lang ?? "bn"}
-                  className="mt-2 text-lg leading-relaxed"
+                  className="mt-2 text-lg leading-relaxed whitespace-pre-line"
                 >
                   {turn.bn}
                 </p>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                <p className="mt-2 text-sm leading-relaxed whitespace-pre-line text-muted-foreground">
                   {turn.en}
                 </p>
               </li>
