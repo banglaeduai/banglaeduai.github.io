@@ -1,16 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { buttonVariants } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
-import {
-  approach,
-  collaborators,
-  faculty,
-  projects,
-  site,
-  type Person,
-} from "@/lib/site";
+import { PersonCard } from "@/components/person-card";
+import { collaborators, faculty, projects, site } from "@/lib/site";
 
 function SectionHeading({ children }: { children: React.ReactNode }) {
   return (
@@ -20,60 +12,47 @@ function SectionHeading({ children }: { children: React.ReactNode }) {
   );
 }
 
-function initials(name: string) {
-  return name
-    .split(" ")
-    .map((part) => part[0])
-    .slice(0, 2)
-    .join("");
-}
-
-function PersonCard({ person }: { person: Person }) {
-  return (
-    <div className="flex gap-5">
-      <div className="relative size-20 shrink-0 overflow-hidden rounded-full bg-muted ring-1 ring-border sm:size-24">
-        {person.image ? (
+/**
+ * One organisation in the "With" band. Logos are square emblems, so a fixed
+ * square frame with `object-contain` fits all of them; an organisation whose
+ * branding we cannot use yet renders as text in the same row.
+ */
+function CollaboratorMark({
+  collaborator: c,
+}: {
+  collaborator: (typeof collaborators)[number];
+}) {
+  const body = (
+    <span className="flex items-center gap-3">
+      {c.logo ? (
+        <span className="relative size-9 shrink-0">
           <Image
-            src={person.image}
-            alt={person.name}
+            src={c.logo}
+            alt={c.logoAlt ?? c.name}
             fill
-            sizes="(min-width: 640px) 96px, 80px"
-            className="object-cover"
+            sizes="36px"
+            className="object-contain"
           />
-        ) : (
-          <span className="flex size-full items-center justify-center text-lg font-medium text-muted-foreground">
-            {initials(person.name)}
-          </span>
-        )}
-      </div>
+        </span>
+      ) : null}
+      <span className="flex flex-col leading-snug">
+        <span className="font-medium">{c.name}</span>
+        <span className="text-xs text-muted-foreground">{c.role}</span>
+      </span>
+    </span>
+  );
 
-      <div className="min-w-0">
-        <h3 className="font-heading text-lg font-medium">{person.name}</h3>
-        <p className="text-sm text-muted-foreground">{person.role}</p>
-        {person.bio ? <p className="mt-3 text-sm">{person.bio}</p> : null}
-
-        <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-sm">
-          {person.email ? (
-            <a
-              className="text-primary underline decoration-primary/30 hover:decoration-primary"
-              href={`mailto:${person.email}`}
-            >
-              {person.email}
-            </a>
-          ) : null}
-          {person.scholar ? (
-            <a
-              className="text-primary underline decoration-primary/30 hover:decoration-primary"
-              href={person.scholar}
-              target="_blank"
-              rel="noreferrer"
-            >
-              Google Scholar
-            </a>
-          ) : null}
-        </div>
-      </div>
-    </div>
+  return c.href ? (
+    <a
+      href={c.href}
+      target="_blank"
+      rel="noreferrer"
+      className="decoration-border underline-offset-4 hover:underline"
+    >
+      {body}
+    </a>
+  ) : (
+    body
   );
 }
 
@@ -103,32 +82,14 @@ export default function Home() {
 
       {/* Collaborators & funding — high on the page, because it is the most
           credibility-dense thing we can say today. */}
-      <section className="border-t border-b py-5">
-        <div className="flex flex-wrap items-center gap-x-8 gap-y-3 text-sm">
+      <section className="border-t border-b py-6">
+        <div className="flex flex-wrap items-center gap-x-8 gap-y-5 text-sm">
           <span className="text-xs font-medium tracking-wide text-muted-foreground uppercase">
             With
           </span>
-          {collaborators.map((c) => {
-            const label = (
-              <>
-                <span className="font-medium">{c.name}</span>
-                <span className="text-muted-foreground"> · {c.role}</span>
-              </>
-            );
-            return c.href ? (
-              <a
-                key={c.name}
-                href={c.href}
-                target="_blank"
-                rel="noreferrer"
-                className="decoration-border underline-offset-4 hover:underline"
-              >
-                {label}
-              </a>
-            ) : (
-              <span key={c.name}>{label}</span>
-            );
-          })}
+          {collaborators.map((c) => (
+            <CollaboratorMark key={c.name} collaborator={c} />
+          ))}
         </div>
       </section>
 
@@ -192,24 +153,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Approach */}
-      <section className="border-t py-16 sm:py-20">
-        <SectionHeading>How we work</SectionHeading>
-        <div className="mt-10 grid gap-10 sm:grid-cols-3">
-          {approach.map((theme) => (
-            <div key={theme.title}>
-              <div className="h-px w-10 bg-primary" aria-hidden />
-              <h3 className="font-heading mt-4 text-base font-medium">
-                {theme.title}
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                {theme.summary}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* People */}
       <section className="border-t py-16 sm:py-20">
         <SectionHeading>People</SectionHeading>
@@ -218,62 +161,11 @@ export default function Home() {
             <PersonCard key={person.name} person={person} />
           ))}
         </div>
-      </section>
-
-      {/* Contact */}
-      <section id="contact" className="scroll-mt-20 border-t py-16 sm:py-20">
-        <SectionHeading>Contact</SectionHeading>
-        <div className="mt-8 grid gap-10 sm:grid-cols-2">
-          <div className="text-sm leading-relaxed">
-            <p>{site.affiliation}</p>
-            {site.room ? <p className="mt-1">{site.room}</p> : null}
-            <p className="mt-1 text-muted-foreground">{site.location}</p>
-
-            <div className="mt-4 flex flex-col gap-1">
-              {site.email ? (
-                <a
-                  className="text-primary underline decoration-primary/30 hover:decoration-primary"
-                  href={`mailto:${site.email}`}
-                >
-                  {site.email}
-                </a>
-              ) : (
-                <span className="text-muted-foreground">
-                  Email address to be added.
-                </span>
-              )}
-              {site.campusMap ? (
-                <a
-                  className="text-primary underline decoration-primary/30 hover:decoration-primary"
-                  href={site.campusMap}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Campus map
-                </a>
-              ) : null}
-            </div>
-          </div>
-
-          <div>
-            <p className="text-sm leading-relaxed text-muted-foreground">
-              We are happy to hear from prospective students at BUET who want to
-              work on Bangla language technology or on education systems, and
-              from groups doing related work elsewhere. Write to one of us
-              directly, and say which of the two projects you are interested in.
-            </p>
-            {site.socials.github ? (
-              <a
-                href={site.socials.github}
-                target="_blank"
-                rel="noreferrer"
-                className={cn(buttonVariants({ variant: "outline" }), "mt-5")}
-              >
-                GitHub
-              </a>
-            ) : null}
-          </div>
-        </div>
+        <p className="mt-10 text-sm">
+          <Link href="/contact/" className="font-medium text-primary hover:underline">
+            Get in touch &rarr;
+          </Link>
+        </p>
       </section>
     </div>
   );

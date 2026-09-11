@@ -31,7 +31,7 @@ export const site = {
   room: "",
   campusMap: "https://maps.app.goo.gl/",
   // Shown in the footer. Bump this whenever the content changes.
-  lastUpdated: "2026-09-02",
+  lastUpdated: "2026-09-11",
   socials: {
     github: "https://github.com/banglaeduai",
     scholar: "",
@@ -43,7 +43,7 @@ export const nav = [
   { href: "/", label: "Home" },
   { href: "/projects/script-checking/", label: "Script checking" },
   { href: "/projects/tutor/", label: "Tutor" },
-  { href: "/#contact", label: "Contact" },
+  { href: "/contact/", label: "Contact" },
 ] as const;
 
 /* -------------------------------------------------------------------------- */
@@ -54,6 +54,14 @@ export type Collaborator = {
   name: string;
   role: string;
   href?: string;
+  /**
+   * Path under `public/logos/`. Optional: an organisation with no logo here
+   * renders as text in the same row, which is the correct behaviour for one
+   * whose branding we are not yet cleared to use.
+   */
+  logo?: string;
+  /** Alt text for the logo. Required whenever `logo` is set. */
+  logoAlt?: string;
 };
 
 export const collaborators: Collaborator[] = [
@@ -61,15 +69,44 @@ export const collaborators: Collaborator[] = [
     name: "BUET",
     role: "Department of CSE",
     href: "https://cse.buet.ac.bd/",
+    logo: "/logos/buet.svg",
+    logoAlt: "Bangladesh University of Engineering and Technology",
   },
   {
+    // The Secondary and Higher Education Division of the ministry is the
+    // executing agency for ICSETEP. Both use the Government Seal.
     name: "Ministry of Education",
-    role: "Government of Bangladesh",
+    role: "Secondary and Higher Education Division",
     href: "https://moedu.gov.bd/",
+    logo: "/logos/bangladesh-govt-seal.svg",
+    logoAlt: "Government Seal of Bangladesh",
+  },
+  {
+    name: "University Grants Commission",
+    role: "Implementing agency",
+    href: "https://ugc.gov.bd/",
+    logo: "/logos/ugc.svg",
+    logoAlt: "University Grants Commission of Bangladesh",
+  },
+  {
+    // This lab's grant is an ICSETEP Research & Development Grant sub-project.
+    // No standalone ICSETEP logo exists: the only published mark is a wide
+    // site header banner (fetched to public/logos/icsetep-header.png), which
+    // does not sit in a row of square logos. Renders as text until we are
+    // given a proper one.
+    // TODO: ask the ICSETEP PMU (pd-icsetep@ugc.gov.bd) for a logo file.
+    name: "ICSETEP",
+    role: "Research & Development Grant",
+    href: "https://rdgicsetep.ugc.gov.bd/",
   },
   {
     // TODO: exact funder wording and grant number — check the tender documents.
     // Grant numbers are sometimes an acknowledgement requirement.
+    //
+    // Deliberately no logo. ADB controls its branding tightly and ADB-funded
+    // projects have visibility rules to follow; the ICSETEP PMU has to confirm
+    // which logo set and acknowledgement wording they approve before we use
+    // the mark. Until then the name alone is the safe thing to show.
     name: "Asian Development Bank",
     role: "Funding",
     href: "https://www.adb.org/",
@@ -181,7 +218,12 @@ export type Theme = {
   summary: string;
 };
 
-/** Derived from the two projects — not aspirational areas. */
+/**
+ * Derived from the two projects — not aspirational areas.
+ *
+ * No longer rendered: the "How we work" section was taken off the homepage.
+ * Kept here so the copy is not lost and can be dropped onto a page later.
+ */
 export const approach: Theme[] = [
   {
     title: "Bangla first, not Bangla last",
@@ -216,24 +258,33 @@ export type Person = {
   link?: string;
 };
 
-// TODO before publishing: confirm the bio wording, email address, Scholar URL
-// and permission to post a photo with each person individually.
+// Photos, Scholar URLs and BUET profile links are confirmed (notes/004.md).
+// The Scholar links printed on the BUET profile pages are both broken — one
+// malformed, one truncated — so these are the working URLs, not the ones the
+// department site links to.
+//
+// TODO before publishing: confirm the bio wording and the email address with
+// each person individually, and confirm permission to host their photo here.
 export const faculty: Person[] = [
   {
     name: "Rifat Shahriyar",
     role: "Professor, Department of CSE, BUET",
     bio: "Works on natural language processing for Bangla and on software engineering. Co-leads BanglaEduAI's work on language technology for Bangla-medium classrooms.",
-    image: "",
+    image: "/people/rifat-shahriyar.jpg",
+    // TODO: BUET address. Left empty deliberately — not guessed.
     email: "",
-    scholar: "",
+    scholar: "https://scholar.google.com/citations?user=p-w4hOUAAAAJ",
+    link: "https://cse.buet.ac.bd/faculty/faculty_detail/rifat",
   },
   {
     name: "Anindya Iqbal",
     role: "Professor, Department of CSE, BUET",
     bio: "Works on machine learning and software engineering. Co-leads BanglaEduAI, and is the point of contact for the lab.",
-    image: "",
+    image: "/people/anindya-iqbal.jpg",
+    // TODO: BUET address. Left empty deliberately — not guessed.
     email: "",
-    scholar: "",
+    scholar: "https://scholar.google.com/citations?user=jAuiNFgAAAAJ",
+    link: "https://cse.buet.ac.bd/faculty/faculty_detail/anindyaiqbal",
   },
 ];
 
