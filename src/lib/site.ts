@@ -39,11 +39,13 @@ export const site = {
   },
 } as const;
 
+// `/contact/` is deliberately absent: the page is wired out of the nav but
+// still exported, so it stays live at /contact/ and nothing links to it.
+// Same arrangement as /research/, /people/ and /publications/ below.
 export const nav = [
   { href: "/", label: "Home" },
   { href: "/projects/script-checking/", label: "Script checking" },
   { href: "/projects/tutor/", label: "Tutor" },
-  { href: "/contact/", label: "Contact" },
 ] as const;
 
 /* -------------------------------------------------------------------------- */

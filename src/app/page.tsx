@@ -161,11 +161,6 @@ export default function Home() {
             <PersonCard key={person.name} person={person} />
           ))}
         </div>
-        <p className="mt-10 text-sm">
-          <Link href="/contact/" className="font-medium text-primary hover:underline">
-            Get in touch &rarr;
-          </Link>
-        </p>
       </section>
     </div>
   );
