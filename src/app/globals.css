@@ -49,9 +49,10 @@
 }
 
 :root {
-  /* Deep-teal accent on warm paper. Light only — there is no dark-mode
-     toggle, so the `.dark` block below is inert and kept only for the
-     shadcn components that reference it. */
+  /* Deep-teal accent on warm paper. The `.dark` block below mirrors it:
+     same roles, same accent, re-weighted for a dark ground rather than the
+     stock neutral-gray palette, which would have turned the teal white. */
+  color-scheme: light;
   --background: #FAFAF8;
   --foreground: #1A1D1E;
   --card: #FFFFFF;
@@ -88,38 +89,44 @@
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
+  /* Warm near-black rather than pure gray, so the paper feeling survives the
+     switch. The teal has to be lifted well above its light-mode value to stay
+     legible on it: #0F6E6E on this ground is close to unreadable. */
+  color-scheme: dark;
+  --background: #141716;
+  --foreground: #ECEDE9;
+  --card: #1B1F1E;
+  --card-foreground: #ECEDE9;
+  --popover: #1B1F1E;
+  --popover-foreground: #ECEDE9;
+  --primary: #4FB5AC;
+  --primary-foreground: #0A1312;
+  --secondary: #242827;
+  --secondary-foreground: #ECEDE9;
+  --muted: #242827;
+  --muted-foreground: #9BA39F;
+  /* Tinted, so hover states read as part of the accent rather than gray. */
+  --accent: #17302E;
+  --accent-foreground: #7FD6CB;
   --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --border: #2C312F;
+  --input: #2C312F;
+  --ring: #4FB5AC;
+  --chart-1: #5FC5B9;
+  --chart-2: #4FB5AC;
+  --chart-3: #3E9E96;
+  --chart-4: #2E8780;
+  --chart-5: #1F6E69;
+  --sidebar: #1B1F1E;
+  --sidebar-foreground: #ECEDE9;
+  --sidebar-primary: #4FB5AC;
+  --sidebar-primary-foreground: #0A1312;
+  --sidebar-accent: #17302E;
+  --sidebar-accent-foreground: #7FD6CB;
+  --sidebar-border: #2C312F;
+  --sidebar-ring: #4FB5AC;
 }
+
 
 @layer base {
   * {

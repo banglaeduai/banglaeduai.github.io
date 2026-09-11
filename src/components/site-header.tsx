@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { ThemeToggle } from "@/components/theme-toggle";
 import { nav, site } from "@/lib/site";
 
 export function SiteHeader() {
@@ -13,19 +14,23 @@ export function SiteHeader() {
           {site.shortName}
         </Link>
 
-        {/* No hamburger: four links fit, and a menu would mean shipping a
-            client component to an otherwise fully static export. */}
-        <nav className="-mx-3 flex items-center gap-1 overflow-x-auto text-sm">
-          {nav.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="rounded-md px-3 py-2 whitespace-nowrap text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
-            >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
+        {/* No hamburger: the links fit, and a menu would mean shipping a
+            second client component. The theme toggle sits outside the nav's
+            scrolling area so it stays reachable when the links overflow. */}
+        <div className="flex items-center gap-1">
+          <nav className="-ml-3 flex items-center gap-1 overflow-x-auto text-sm">
+            {nav.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="rounded-md px-3 py-2 whitespace-nowrap text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+          <ThemeToggle />
+        </div>
       </div>
     </header>
   );
