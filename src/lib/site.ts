@@ -291,14 +291,20 @@ export const tutorFigures: Figure[] = [
 /**
  * A short real excerpt from a tutoring session, Bangla with an English gloss.
  *
- * Transcribed from the session captured in
- * `public/demo/pedagogical_conv/book-reference.png`. It is set as real text
- * rather than left to the screenshot alone so that it is selectable, findable
- * and readable by a screen reader.
+ * One turn — the student's question and the tutor's reply to it — taken
+ * verbatim from `good-example-2.json`, which is a transcript copied out of the
+ * backend LLM call log (`backend/logs/llm/20260726.jsonl`, session
+ * 9e1bbd1a-2b91-4267-969f-534b87d44ba4, 26 July 2026). The student is working
+ * on a combinations problem and has overcounted; the tutor names the mistake
+ * and hands the reasoning back rather than supplying the textbook's 246.
+ *
+ * It is set as real text rather than left to a screenshot so that it is
+ * selectable, findable and readable by a screen reader.
  *
  * The tutor's opening pleasantries, which recap that particular student's
- * earlier sessions, are trimmed; the physics and the question it ends on are
- * verbatim.
+ * earlier sessions, are trimmed, as they were in the previous excerpt. Nothing
+ * else is changed: the mathematics, the code-mixed "(miss)", and the question
+ * it ends on are all as they were said.
  */
 export type TranscriptTurn = {
   speaker: "student" | "tutor";
@@ -316,18 +322,13 @@ export const tutorTranscript: TranscriptTurn[] = [
   {
     speaker: "student",
     lang: "bn-Latn",
-    bn: "ekta charghed golok theke ekta uncharged golok ke sporsho korle keno charge probahito hoy?",
-    en: "Why does charge flow when a charged sphere is touched to an uncharged one?",
+    bn: "ami atate atka gachi: \"10 jon manusher modhye 5 jon er ekta committee koto bhabe gathito hote pare, jekhane 4 jon mohila ache, ebong prottek committee te at least 1 jon mohila thakte hobe?\" boi bolche uttor holo 246.ami amar poddhoti bolchi: prothome, ami nischit bhabe at least 1 jon mohila nite hobe. Tai ami 4 jon mohilar modhye 1 jon mohila niyechi: 4C1. Ekhon amar kache committee te 4 ta khali seat ache, ebong 9 jon manusher modhye 4 jon ke niyechi. Tai ami 9C4 = 126 bhabe 4 jon ke niyechi. Seshe, ami egulo ke gun korechi 504. Keno amar uttor bhul?",
+    en: "I am stuck on this one: “In how many ways can a committee of 5 be formed from 10 people, where 4 of them are women, and every committee must contain at least 1 woman?” The book says the answer is 246. Here is my method: first, I definitely have to take at least 1 woman, so I picked 1 woman out of the 4: 4C1. Now there are 4 empty seats left on the committee, and I picked 4 people out of the remaining 9, so that is 9C4 = 126 ways. Finally I multiplied the two and got 504. Why is my answer wrong?",
   },
   {
     speaker: "tutor",
-    bn: "\u099a\u09be\u09b0\u09cd\u099c \u09aa\u09cd\u09b0\u09ac\u09be\u09b9\u09bf\u09a4 \u09b9\u09af\u09bc \u0995\u09be\u09b0\u09a3 \u09a6\u09c1\u099f\u09bf \u0997\u09cb\u09b2\u0995\u09c7\u09b0 \u09ae\u09a7\u09cd\u09af\u09c7 \u09ac\u09c8\u09a6\u09cd\u09af\u09c1\u09a4\u09bf\u0995 \u09ac\u09bf\u09ad\u09ac\u09c7\u09b0 \u09aa\u09be\u09b0\u09cd\u09a5\u0995\u09cd\u09af \u09a5\u09be\u0995\u09c7\u0964 \u0989\u099a\u09cd\u099a \u09ac\u09bf\u09ad\u09ac\u09c7\u09b0 \u09b6\u09b0\u09c0\u09b0 \u09a5\u09c7\u0995\u09c7 \u09a8\u09bf\u09ae\u09cd\u09a8 \u09ac\u09bf\u09ad\u09ac\u09c7\u09b0 \u09b6\u09b0\u09c0\u09b0\u09c7 \u099a\u09be\u09b0\u09cd\u099c \u09aa\u09cd\u09b0\u09ac\u09be\u09b9\u09bf\u09a4 \u09b9\u09a4\u09c7 \u099a\u09be\u09af\u09bc \u09af\u09a4\u0995\u09cd\u09b7\u09a3 \u09a8\u09be \u0989\u09ad\u09af\u09bc \u09b8\u09cd\u09a5\u09be\u09a8\u09c7\u09b0 \u09ac\u09bf\u09ad\u09ac \u09b8\u09ae\u09be\u09a8 \u09b9\u09af\u09bc\u0964 \u098f\u0987 \u09ac\u09bf\u09ad\u09ac \u09aa\u09be\u09b0\u09cd\u09a5\u0995\u09cd\u09af\u0987 \u099a\u09be\u09b0\u09cd\u099c \u099a\u09b2\u09be\u099a\u09b2\u09c7\u09b0 \u09ae\u09c2\u09b2 \u099a\u09be\u09b2\u09bf\u0995\u09be\u09b6\u0995\u09cd\u09a4\u09bf\u0964",
-    en: "Charge flows because there is a difference in electric potential between the two spheres. Charge tends to flow from the body at higher potential to the body at lower potential, until the potential is equal at both. That potential difference is the thing driving the movement of charge.",
-  },
-  {
-    speaker: "tutor",
-    bn: "\u09a4\u09cb\u09ae\u09be\u09b0 \u09ae\u09a4\u09c7, \u098f\u0995\u099f\u09bf \u099a\u09be\u09b0\u09cd\u099c\u09bf\u09a4 \u0997\u09cb\u09b2\u0995 \u098f\u09ac\u0982 \u098f\u0995\u099f\u09bf \u099a\u09be\u09b0\u09cd\u099c\u09b9\u09c0\u09a8 \u0997\u09cb\u09b2\u0995\u09c7\u09b0 \u09ae\u09a7\u09cd\u09af\u09c7 \u0995\u09be\u09b0 \u09ac\u09c8\u09a6\u09cd\u09af\u09c1\u09a4\u09bf\u0995 \u09ac\u09bf\u09ad\u09ac \u09ac\u09c7\u09b6\u09bf \u09b9\u09ac\u09c7?",
-    en: "In your view, which will have the higher electric potential \u2014 a charged sphere, or an uncharged one?",
+    bn: "কোনো সমস্যা নেই, গণিতে এমন ভুল অনেকেরই হয় এবং এটাই শেখার সেরা উপায়। তোমার পদ্ধতিতে একটি ছোট কিন্তু গুরুত্বপূর্ণ বিষয় (miss) হয়ে গেছে, যাকে বলা হয় 'overcounting'।\n\nধরা যাক, তোমার কমিটির সদস্যদের নাম মহিলা A, B এবং বাকি ৩ জন পুরুষ। এখন ভেবে দেখো তো—তুমি যদি প্রথমে মহিলা A-কে বেছে নাও এবং পরে বাকিদের মধ্য থেকে মহিলা B-কে নাও, আর আবার অন্যবার প্রথমে মহিলা B-কে বেছে নিয়ে পরে মহিলা A-কে নাও, তবে কি এই দুটি কমিটি আসলে আলাদা হবে নাকি একই হবে?",
+    en: "No problem at all — plenty of people make this mistake in mathematics, and making it is the best way to learn. Your method misses one small but important thing, called ‘overcounting’.\n\nSay the members of your committee are the women A and B and three men. Now think it through: if you first pick woman A and then pick woman B from the rest, and on another occasion you first pick woman B and then pick woman A, will those two committees really be different, or will they be the same one?",
   },
 ];
 
