@@ -1,7 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import {
   approach,
   collaborators,
@@ -262,19 +263,14 @@ export default function Home() {
               directly, and say which of the two projects you are interested in.
             </p>
             {site.socials.github ? (
-              <Button
-                variant="outline"
-                className="mt-5"
-                render={
-                  <a
-                    href={site.socials.github}
-                    target="_blank"
-                    rel="noreferrer"
-                  />
-                }
+              <a
+                href={site.socials.github}
+                target="_blank"
+                rel="noreferrer"
+                className={cn(buttonVariants({ variant: "outline" }), "mt-5")}
               >
                 GitHub
-              </Button>
+              </a>
             ) : null}
           </div>
         </div>
