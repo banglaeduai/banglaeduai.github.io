@@ -27,10 +27,10 @@ export default function ContactPage() {
           Contact
         </h1>
         <p className="mt-6 text-lg leading-relaxed text-foreground/85">
-          We are happy to hear from prospective students at BUET who want to
-          work on Bangla language technology or on education systems, and from
-          groups doing related work elsewhere. Write to one of us directly, and
-          say which of the two projects you are interested in.
+          We welcome messages from prospective BUET students interested in
+          Bangla language technology or education systems. We are also happy to
+          hear from groups working on related problems elsewhere. Write to one
+          of us directly and mention which project interests you.
         </p>
       </header>
 
@@ -70,7 +70,8 @@ export default function ContactPage() {
         <div className="text-sm leading-relaxed">
           <h2 className="font-heading text-lg font-medium">Elsewhere</h2>
           <p className="mt-4 text-muted-foreground">
-            Code and released artefacts, as they become public, go on GitHub.
+            We publish code and other project materials on GitHub as they become
+            available.
           </p>
           {site.socials.github ? (
             <a

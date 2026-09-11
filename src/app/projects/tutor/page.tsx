@@ -78,10 +78,9 @@ export default function TutorPage() {
         )}
 
         <p className="mt-8 leading-relaxed text-muted-foreground">
-          Two things in that exchange are the whole point of the project. The
-          student writes Bangla in Latin letters, the way students actually
-          type, and is answered in Bangla. And the tutor stops on a question
-          rather than on the answer.
+          This exchange shows the two main ideas behind the project. The
+          student writes Bangla in Latin letters, as students often do, and the
+          tutor replies in Bangla. It also ends with a question, not an answer.
         </p>
       </section>
 
@@ -92,9 +91,9 @@ export default function TutorPage() {
           What the student sees
         </h2>
         <p className="mt-3 text-muted-foreground">
-          Explanations are grounded in the student&rsquo;s own textbook, and a
-          proof or a piece of physics is built up in front of them rather than
-          asserted. The recordings below are of the working prototype.
+          Explanations draw on the student&rsquo;s own textbook. Proofs and
+          physics concepts are developed step by step instead of simply being
+          stated. Every example below comes from the working prototype.
         </p>
 
         <div className="mt-10 space-y-16 lg:-mx-24">
@@ -115,18 +114,17 @@ export default function TutorPage() {
         </h2>
         <div className="mt-4 space-y-4 leading-relaxed text-muted-foreground">
           <p>
-            A fluent model will answer a student&rsquo;s question immediately
-            and completely, which is exactly the wrong move. The interesting
-            work is in the restraint: deciding what the student has actually
-            misunderstood, and choosing the next question that will get them to
-            see it themselves.
+            A fluent model often answers a student&rsquo;s question immediately
+            and in full, but that can get in the way of learning. The challenge
+            is knowing when to hold back: first identify what the student has
+            misunderstood, then ask the question that will help them recognize
+            it themselves.
           </p>
           <p>
-            Doing that in Bangla is not a translation problem. The register a
-            student uses with a teacher, the way a problem is stated in a
-            Bangla-medium textbook, and the English technical vocabulary that
-            sits inside otherwise-Bangla sentences all have to be handled as
-            they actually occur.
+            Supporting this kind of learning in Bangla requires more than
+            translation. The system must understand how students speak to
+            teachers, how Bangla-medium textbooks present problems, and how
+            English technical terms appear within Bangla sentences.
           </p>
         </div>
       </section>

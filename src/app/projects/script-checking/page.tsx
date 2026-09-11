@@ -42,11 +42,11 @@ export default function ScriptCheckingPage() {
           What the system produces
         </h2>
         <p className="mt-3 text-muted-foreground">
-          The output of a run is a marked script. Each region the system has
-          read is boxed, mapped to the question it answers, and given a
-          judgement with its evidence attached &mdash; so a human examiner can
-          see not just what the system decided but what it was looking at. The
-          recordings below are of the working system, at their original speed.
+          Each run produces a marked script. The system boxes every region it
+          reads, links it to the relevant question, and provides evidence for
+          its judgement. A human examiner can therefore see both the decision
+          and the part of the script behind it. The recordings below show the
+          working system at its original speed.
         </p>
 
         <div className="mt-10 space-y-16 lg:-mx-24">
@@ -67,18 +67,18 @@ export default function ScriptCheckingPage() {
         </h2>
         <div className="mt-4 space-y-4 leading-relaxed text-muted-foreground">
           <p>
-            A script is not a form. Students write across margins, cross work
-            out, answer questions out of order, and switch between Bangla
-            prose, English technical terms, and notation that belongs to
-            neither. Before anything can be marked, the page has to be segmented
-            into answers and each answer matched to the question it belongs to.
+            An exam script is not a structured form. Students write in the
+            margins, cross out their work, answer questions out of order, and
+            move between Bangla prose, English technical terms, and mathematical
+            notation. Before marking can begin, the system must separate the
+            page into answers and match each one to the correct question.
           </p>
           <p>
-            Marking then has to be right for the right reason. A system that
-            gets the grade correct while reading the wrong part of the page is
-            not a system anyone can put in front of an examination board, which
-            is why every judgement is tied back to a region and a confidence
-            rather than reported as a single number.
+            A correct mark must also be based on the correct evidence. Even if
+            a system gives the right grade, it cannot be trusted if it reads the
+            wrong part of the page. That is why each judgement includes the
+            relevant page region and a confidence score, rather than only a
+            single mark.
           </p>
         </div>
       </section>
@@ -86,7 +86,7 @@ export default function ScriptCheckingPage() {
       <section className="mt-16 border-t pt-8">
         <h2 className="font-heading text-lg font-medium">Where it stands</h2>
         <p className="mt-3 leading-relaxed text-muted-foreground">
-          {project.status} What is shown on this page is output from the working
+          {project.status} Every example on this page is output from the working
           system on real scripts, not a mock-up.
         </p>
       </section>

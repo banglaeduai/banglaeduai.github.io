@@ -15,7 +15,7 @@ export const site = {
   shortName: "BanglaEduAI",
   tagline: "AI for Bangla-medium education",
   description:
-    "We build AI systems that work in Bangla and are useful in a real classroom: software that marks handwritten exam scripts, and a tutor that works through a problem with a student instead of answering it for them.",
+    "We build practical AI systems for Bangla-medium classrooms: software that reads and marks handwritten exam scripts, and a tutor that guides students through problems without simply giving them the answers.",
   // Used for <link rel="canonical"> and social cards.
   // TODO: confirm — banglaeduai.github.io, or a path under cse.buet.ac.bd?
   // A custom domain later is just a CNAME file; a subpath under an existing
@@ -164,16 +164,16 @@ export const projects: Project[] = [
     slug: "script-checking",
     title: "Automated script checking",
     summary:
-      "Reading and marking handwritten exam scripts, with every judgement tied to a place on the page and a confidence score.",
+      "Reading and marking handwritten exam scripts, with every judgement linked to evidence on the page and a confidence score.",
     intro:
-      "Marking is the part of a national examination system that scales worst. A script-checking system reads a student's handwritten answer, works out which question it is answering, and decides whether it is right — pointing at the exact region of the page it based that decision on. The output is not a bare grade but an annotated script a human examiner can audit.",
+      "Marking is one of the hardest parts of a national examination system to scale. Our system reads a student's handwritten answer, identifies the question being answered, and judges whether the work is correct. It also highlights the exact part of the page used for each decision. Instead of producing only a grade, it returns an annotated script that a human examiner can audit.",
     status:
-      "The system runs end to end on real scripts. What is shown here is an internal evaluation build: there is no interface yet that anyone outside the project can use.",
+      "The system runs from start to finish on real scripts. The version shown here is an internal evaluation build and is not yet available outside the project.",
     cover: {
       src: "/demo/script/script-image-2.png",
       alt: "The evaluation workspace: a marked handwritten physics script beside the rubric criteria the system awarded and withheld",
       caption:
-        "A marked script: every criterion met or lost, and the region of the page behind each verdict.",
+        "A marked script showing which criteria were met, which were not, and the part of the page supporting each decision.",
       aspect: "16 / 9",
     },
   },
@@ -181,16 +181,16 @@ export const projects: Project[] = [
     slug: "tutor",
     title: "Pedagogical conversational agent",
     summary:
-      "A Bangla-speaking tutor that works a student through a problem rather than handing over the answer.",
+      "A Bangla-speaking tutor that guides students through problems instead of simply giving them the answers.",
     intro:
-      "A student who is given the answer learns very little. This project builds a conversational tutor in Bangla that responds to what a student has actually misunderstood — asking the next useful question, holding back the solution, and staying on the pedagogy rather than simply being fluent.",
+      "Simply giving students the answer does little to help them learn. This project is building a conversational tutor in Bangla that responds to each student's misunderstanding. It asks the next useful question, holds back the solution, and focuses on teaching rather than fluency alone.",
     status:
-      "A working prototype exists and has been used in real tutoring sessions. Wider evaluation is ongoing.",
+      "All examples shown here are from the working prototype. The system is under active development.",
     cover: {
       src: "/demo/pedagogical_conv/book-reference.png",
       alt: "A tutoring conversation in Bangla, with the matching figure from the student's own textbook shown alongside",
       caption:
-        "A tutoring exchange, grounded in the page of the textbook the student is working from.",
+        "A tutoring exchange based on the page of the textbook the student is using.",
       aspect: "16 / 9",
     },
   },
@@ -219,7 +219,7 @@ export const scriptFigures: Figure[] = [
     src: "/demo/script/script-image-2.png",
     alt: "A marked script: the student's handwritten mean-free-path working, with a red box around the incorrect final value, beside four rubric criteria the system has marked met or lost",
     caption:
-      "A handwritten physics answer marked 4 out of 10. The system awards the two criteria the student met, withholds the two they did not, and boxes the incorrect final value on the page \u2014 so the mark can be checked against the evidence rather than taken on trust.",
+      "A handwritten physics answer marked 4 out of 10. The system awards marks for the two criteria the student met and withholds them for the two they did not. It also boxes the incorrect final value, allowing an examiner to check the mark against the evidence.",
     aspect: "16 / 9",
   },
   {
@@ -227,7 +227,7 @@ export const scriptFigures: Figure[] = [
     poster: "/demo/script/script-demo-1-poster.jpg",
     alt: "Screen recording of the grading pipeline running on a relative-velocity question, stepping through reading, verifying, synthesising, supervising and examining",
     caption:
-      "A full run on a relative-velocity question. The pipeline reads the handwriting, checks the reference solution, synthesises the marking scheme the board never supplied, re-reads the script, and only then marks it step by step.",
+      "A full run on a relative-velocity question. The pipeline reads the handwriting, checks the reference solution, and creates the missing marking scheme. It then reads the script again and marks it step by step.",
     aspect: "16 / 9",
   },
   {
@@ -235,7 +235,7 @@ export const scriptFigures: Figure[] = [
     poster: "/demo/script/script-demo-2-poster.jpg",
     alt: "Screen recording of the same pipeline grading a vector algebra question and locating its evidence on the page",
     caption:
-      "The same pipeline on a vector algebra question, ending by pointing each verdict at the exact lines of the script it came from.",
+      "The same pipeline grades a vector algebra question and links each decision to the exact lines that support it.",
     aspect: "16 / 9",
   },
 ];
@@ -253,7 +253,7 @@ export const tutorFigures: Figure[] = [
     src: "/demo/pedagogical_conv/book-reference.png",
     alt: "The tutor answering a physics question in Bangla, with the cited figure and page from the student's NCTB textbook shown in a panel alongside",
     caption:
-      "The student asks in romanised Bangla and is answered in Bangla, alongside the exact figure and page of the national textbook the explanation is drawn from \u2014 the same edition they have in front of them.",
+      "The student asks in romanised Bangla and receives an answer in Bangla. The tutor also shows the exact figure and page it uses from the same edition of the national textbook.",
     aspect: "2064 / 1421",
   },
   {
@@ -261,7 +261,7 @@ export const tutorFigures: Figure[] = [
     poster: "/demo/pedagogical_conv/geometry-demo-1-poster.jpg",
     alt: "An animated geometric proof that the diagonals of a parallelogram bisect each other, built up step by step beside the written proof in Bangla",
     caption:
-      "A proof that the diagonals of a parallelogram bisect each other, drawn one step at a time against the written argument in Bangla, at a pace the student controls.",
+      "A proof that the diagonals of a parallelogram bisect each other. The diagram develops alongside the written argument in Bangla, one step at a time and at the student's pace.",
     aspect: "16 / 9",
   },
   {
@@ -269,21 +269,21 @@ export const tutorFigures: Figure[] = [
     poster: "/demo/pedagogical_conv/geometry-demo-2-poster.jpg",
     alt: "An animated construction showing why the three angles of a triangle sum to 180 degrees, beside the written proof in Bangla",
     caption:
-      "The angle sum of a triangle: the auxiliary parallel line appears at the moment the proof needs it, rather than being given at the start.",
+      "A proof of the angle sum of a triangle. The auxiliary parallel line appears when the proof needs it, rather than at the start.",
     aspect: "16 / 9",
   },
   {
     src: "/demo/pedagogical_conv/simulation-example-1.png",
-    alt: "An interactive circuit model with sliders for two parallel resistors, a series resistor and the supply voltage, and a task set underneath",
+    alt: "An interactive circuit visualization with sliders for two parallel resistors, a series resistor and the supply voltage, and a task set underneath",
     caption:
-      "Where a diagram is not enough, the tutor builds a model the student can manipulate, and then sets them a target to reach with it.",
+      "When a diagram is not enough, the tutor provides graphs and creates interactive visualizations. It then gives the student a target to work towards.",
     aspect: "1475 / 987",
   },
   {
     src: "/demo/pedagogical_conv/math-viz-1.jpg",
     alt: "The tutor deriving the sine addition formula in Bangla, beside an adjustable unit-circle construction of the same identity",
     caption:
-      "The sine addition formula worked through in Bangla, beside a construction of the same identity the student can move.",
+      "The tutor explains the sine addition formula in Bangla alongside an adjustable unit-circle visualization of the same identity.",
     aspect: "1280 / 619",
   },
 ];
@@ -351,17 +351,17 @@ export const approach: Theme[] = [
   {
     title: "Bangla first, not Bangla last",
     summary:
-      "Bangla handwriting, orthography and classroom register are the starting point, not a translation layer bolted onto an English system. Most of what makes these problems hard is specific to the language and to how it is written by hand under exam conditions.",
+      "We begin with Bangla handwriting, spelling, and classroom language instead of adding translation to an English system. Much of the difficulty comes from the language itself and from how students write it by hand under exam conditions.",
   },
   {
     title: "Judgements a teacher can check",
     summary:
-      "Every automated decision carries its evidence: the region of the page it came from and how confident the system is. A marking system a teacher cannot audit is not usable in an examination, however accurate it is on average.",
+      "Every automated decision includes its evidence: the relevant part of the page and the system's confidence. A marking system that teachers cannot audit is not suitable for examinations, regardless of its average accuracy.",
   },
   {
     title: "Built for the classroom that exists",
     summary:
-      "The constraints we design against are the real ones — the volume of scripts a board actually processes, and what a student can do with a tutor on the device they already own.",
+      "We design for real constraints: the number of scripts an examination board must process and what students can do with a tutor on the devices they already own.",
   },
 ];
 
@@ -454,7 +454,7 @@ export const researchAreas: ResearchArea[] = [
   {
     title: "AI tutoring systems",
     summary:
-      "Conversational tutors that reason about a student's misconceptions in their own language, and that stay pedagogically grounded rather than just fluent.",
+      "Conversational tutors that identify a student's misconceptions in their own language and remain focused on teaching rather than fluency alone.",
     tags: ["Education", "Dialogue", "LLMs"],
   },
   {

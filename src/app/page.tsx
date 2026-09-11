@@ -79,12 +79,12 @@ export default function Home() {
           {site.name}
         </h1>
         <p className="mt-6 text-lg leading-relaxed text-foreground/85">
-          Bangladesh&rsquo;s classrooms run in Bangla; almost none of the
-          language technology reshaping education elsewhere does. We build AI
-          systems that work in Bangla and hold up in a real classroom &mdash;
+          Most classrooms in Bangladesh run in Bangla, but very little of the
+          language technology transforming education elsewhere works in
+          Bangla. We build AI systems for real Bangla-medium classrooms:
           software that reads and marks handwritten exam scripts, and a tutor
-          that works through a problem with a student instead of handing over
-          the answer.
+          that guides students through problems without simply giving them the
+          answers.
         </p>
         <p className="mt-6 text-sm text-muted-foreground">
           {site.affiliation}
@@ -117,8 +117,8 @@ export default function Home() {
       <section className="py-16 sm:py-20">
         <SectionHeading>Projects</SectionHeading>
         <p className="mt-3 text-muted-foreground">
-          Two systems, both aimed at the parts of Bangla-medium schooling that
-          scale worst.
+          We are building two systems for the parts of Bangla-medium education
+          that are hardest to scale.
         </p>
 
         <div className="mt-10 grid gap-10 sm:grid-cols-2">
